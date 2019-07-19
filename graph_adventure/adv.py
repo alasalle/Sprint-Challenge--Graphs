@@ -47,12 +47,13 @@ graph[player.currentRoom.id] = player.currentRoom.getExits()
 
         # remove last direction from its' unexplored exits
 
+
 # track exits
 
 
     # no unexplored exits
 
-        # loop while no exits (walking back through reverse until there # are unexeplored exits)
+        # loop while no exits (walking back through reverse until there are unexeplored exits)
 
             # get last direction from reverse
 
