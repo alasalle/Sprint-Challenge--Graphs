@@ -22,6 +22,9 @@ player = Player("Name", world.startingRoom)
 
 # FILL THIS IN
 traversalPath = []
+graph = {}
+reverse = []
+opposites = {'n': 's', 's': 'n', 'e': 'w', 'w': 'e'}
 
 
 # TRAVERSAL TEST
