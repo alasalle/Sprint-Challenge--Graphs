@@ -38,25 +38,37 @@ graph[player.currentRoom.id] = player.currentRoom.getExits()
 # begins traversal loop
 #while len(graph) < len(roomGraph)-1:
 
-# no unexplored exits
+# track room
 
-    # loop while no exits (walking back through reverse until there # are unexeplored exits)
 
-        # get last direction from reverse
+    # if room not visited
 
-        # add that last one to traversalPath
+        # add it & its' exits to graph
 
-        # travel to it
+        # remove last direction from its' unexplored exits
 
-# available exits?
+# track exits
 
-    # get available exit
 
-    # add exit to traversalPath
+    # no unexplored exits
 
-    # add opposite direction to reverse
+        # loop while no exits (walking back through reverse until there # are unexeplored exits)
 
-    # travel to exit
+            # get last direction from reverse
+
+            # add that last one to traversalPath
+
+            # travel to it
+
+    # available exits?
+
+        # get available exit
+
+        # add exit to traversalPath
+
+        # add opposite direction to reverse
+
+        # travel to exit
 
 # TRAVERSAL TEST
 visited_rooms = set()
