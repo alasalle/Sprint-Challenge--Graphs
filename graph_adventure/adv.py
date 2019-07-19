@@ -38,7 +38,13 @@ graph[player.currentRoom.id] = player.currentRoom.getExits()
 # begins traversal loop
 #while len(graph) < len(roomGraph)-1:
 
+    # get available exit
 
+    # add exit to traversalPath
+
+    # add opposite direction to reverse
+
+    # travel to exit
 
 # TRAVERSAL TEST
 visited_rooms = set()
