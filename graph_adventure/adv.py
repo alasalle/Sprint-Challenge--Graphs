@@ -35,17 +35,23 @@ graph[player.currentRoom.id] = player.currentRoom.getExits()
 # will have to track & go back when rooms have no unexplored exits
 # have to do all of this until all rooms have been explored 
 
+# You may find the commands `player.currentRoom.id`, `player.currentRoom.getExits()` and `player.travel(direction)` useful.
+
 # begins traversal loop
-#while len(graph) < len(roomGraph)-1:
+while len(graph) < len(roomGraph)-1:
 
 # track room
 
 
     # if room not visited
+    if player.currentRoom.id not in graph:
 
         # add it & its' exits to graph
+        graph[player.currentRoom.id] = player.currentRoom.getExits()
 
         # remove last direction from its' unexplored exits
+        lastDir = reverse[-1]
+        graph[player.currentRoom.id].remove(lastDir)
 
 
 # track exits
@@ -53,23 +59,31 @@ graph[player.currentRoom.id] = player.currentRoom.getExits()
 
     # no unexplored exits
 
-        # loop while no exits (walking back through reverse until there are unexeplored exits)
+    # loop while no exits (walking back through reverse until there are unexeplored exits)
+    while len(graph[player.currentRoom.id]) == 0:
 
-            # get last direction from reverse
+        # remove last direction from reverse
+        goBack = reverse.pop()
 
-            # add that last one to traversalPath
+        # add that last one to traversalPath
+        traversalPath.append(goBack)
 
-            # travel to it
+        # travel to it
+        player.travel(goBack)
 
     # available exits?
 
-        # get available exit
+    # get first available exit
+    goForward = graph[player.currentRoom.id].pop(0)
 
-        # add exit to traversalPath
+    # add exit to traversalPath
+    traversalPath.append(goForward)
 
-        # add opposite direction to reverse
+    # add opposite direction to reverse
+    reverse.append(opposites[goForward])
 
-        # travel to exit
+    # travel to exit
+    player.travel(goForward)
 
 # TRAVERSAL TEST
 visited_rooms = set()
@@ -87,9 +101,9 @@ else:
 
 
 
-#######
+# ######
 # UNCOMMENT TO WALK AROUND
-#######
+# ######
 # player.currentRoom.printRoomDescription(player)
 # while True:
 #     cmds = input("-> ").lower().split(" ")
